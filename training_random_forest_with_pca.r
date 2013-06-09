@@ -28,8 +28,8 @@ test_labels <- test_set[, 1]
 
 pc <- prcomp(train_features)
 
-rf <- randomForest(pc$x, as.factor(train_labels), importance=TRUE)
-test.p <- predict(pc, newdata = test_data)
+rf <- randomForest(pc$x, train_labels, importance=TRUE)
+test.p <- predict(pc, newdata = test_features)
 pred <- predict(rf, newdata = data.frame(test.p), type = "response")
 
 # General accuracy evaluation
@@ -48,7 +48,7 @@ LogLoss<-function(actual, predicted)
     return(result)
 }
 
-cat("Logloss = ", LogLoss(pred, test_labels), "\n")
+cat("Logloss = ", LogLoss(as.double(pred), as.double(test_labels)), "\n")
 
 
 
