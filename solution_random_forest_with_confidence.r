@@ -1,10 +1,19 @@
-﻿# This uses random forest to recognize biological response
+﻿# Kaggle - Predicting a Biological Response
+#
+# Author: Eric Chio <im.ckieric@gmail.com>
+# Date: 2013/06/09
+#
+# **Methodology**
+# Uses RandomForest combined with Principal Component Analysis on training data.
+# This file is used to check the results locally
+#
+# **Results**
+# This uses random forest to recognize biological response
 # Test on real data.
-# This yields an average rank of #191 with a log loss of 0.39895
-
-setwd('D:/L/source/biological response') # only for my computer
 
 library(randomForest)
+
+# setwd('D:/L/source/biological response') # only for my computer
 
 train_data <- read.csv('data/train.csv', header = T)
 test_data <- read.csv('data/test.csv', header = T)
